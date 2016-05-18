@@ -33,16 +33,16 @@ func (graph *Graph) Walk(callback func(*Node)) {
 func (graph *Graph) Bfs(callback func(*Node)) {
 	visited := make(map[*Node]bool)
 	queue := queue.NewQueue()
-	queue.Add(graph.root)
+	queue.Enqueue(graph.root)
 	visited[graph.root] = true
 
 	for !queue.Empty() {
-		current := queue.Get().(*Node)
+		current := queue.Dequeue().(*Node)
 		iterator := current.GetIterator()
 		for currentNode := iterator(); currentNode != nil; currentNode = iterator() {
 			if _, wasVisited := visited[currentNode]; !wasVisited {
 				visited[currentNode] = true
-				queue.Add(currentNode)
+				queue.Enqueue(currentNode)
 				callback(currentNode)
 			}
 		}
