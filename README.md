@@ -1,5 +1,5 @@
 # go-graph
-Implements a general graph data structure in Go
+Implements a general graph ADT in Go
 
 This project is part of my "learn go" projects
 
