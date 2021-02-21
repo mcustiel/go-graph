@@ -35,6 +35,7 @@ func (graph *Graph) Bfs(callback func(*Node)) {
 	queue := queue.NewQueue()
 	queue.Enqueue(graph.root)
 	visited[graph.root] = true
+	callback(graph.root)
 
 	for !queue.Empty() {
 		current := queue.Dequeue().(*Node)
